@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Rimozione XMOORE - Dissequestro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box {
+            background-color: #1e1e1e;
+            padding: 25px;
+            border-radius: 15px;
+            width: 320px;
+            box-shadow: 0 0 15px #000;
+            text-align: center;
+        }
+        img {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            margin-bottom: 15px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: none;
+            font-size: 15px;
+        }
+        button {
+            background-color: #ff0000;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <img src="logo.png" alt="Rimozione XMOORE">
+
+    <h2>Dissequestro Veicolo</h2>
+
+    <input type="text" id="targa" placeholder="Targa veicolo">
+
+    <input type="number" id="giorni" placeholder="Giorni in deposito" min="0">
+
+    <button onclick="calcola()">Calcola Importo</button>
+
+    <div class="result" id="risultato"></div>
+</div>
+
+<script>
+function calcola() {
+    const targa = document.getElementById("targa").value.toUpperCase();
+    const giorni = parseInt(document.getElementById("giorni").value) || 0;
+
+    const totale = 5000 + (giorni * 500);
+
+    document.getElementById("risultato").innerHTML =
+        "Targa: <b>" + targa + "</b><br>" +
+        "Totale: <b>" + totale + "$</b>";
+}
+</script>
+
+</body>
+</html>
